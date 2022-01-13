@@ -14,6 +14,12 @@
 	"rules": {
 		"max-len": "warn"
 	},
+	"overrides": [
+		{
+			"files": "**/*.vue",
+			"extends": "wikimedia/vue3-es6"
+		}
+	],
 	"settings": {
 		"jsdoc": {
 			"preferredTypes": {
