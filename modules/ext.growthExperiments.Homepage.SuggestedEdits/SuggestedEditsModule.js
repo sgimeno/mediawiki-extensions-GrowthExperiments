@@ -253,8 +253,12 @@ SuggestedEditsModule.prototype.fetchTasksAndUpdateView = function ( options ) {
 		this.filters.updateMatchCount( this.taskCount );
 		return $.Deferred().resolve().promise();
 	}
-	this.apiPromise = this.api.fetchTasks( this.taskTypesQuery, this.topicsQuery, {
-		context: 'suggestedEditsModule.fetchTasksAndUpdateView'
+	this.apiPromise = mw.libs.ge.store.dispatch( 'tasks/getAllTasks', {
+		taskTypes: this.taskTypesQuery,
+		topics: this.topicsQuery,
+		config: {
+			context: 'suggestedEditsModule.fetchTasksAndUpdateView'
+		}
 	} );
 	return this.apiPromise.then( function ( data ) {
 		// HomepageModuleLogger adds this to the log data automatically

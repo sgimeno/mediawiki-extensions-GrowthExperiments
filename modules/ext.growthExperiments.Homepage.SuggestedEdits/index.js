@@ -104,7 +104,12 @@
 				return $.Deferred().resolve();
 			}
 			return suggestedEditsModule.showCard();
-		} ).done( function () {
+			// Vuex 3.4.0 enforces the use of native Promises.
+			// The .done() is a $.Deferred method.
+			// https://stackoverflow.com/questions/64815666/vuex-action-returning-jquery-promise-doesnt-work-fail-is-not-a-function
+			// https://github.com/vuejs/vuex/releases/tag/v3.4.0
+			// } ).done( function () {
+		} ).then( function () {
 			mw.track(
 				'timing.growthExperiments.specialHomepage.modules.suggestedEditsLoadingComplete.' +
 					( OO.ui.isMobile() ? 'mobile' : 'desktop' ),

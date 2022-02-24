@@ -648,7 +648,8 @@
 				"oojs-ui.styles.icons-editing-core",
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
-				"ext.growthExperiments.SuggestedEditSession"
+				"ext.growthExperiments.SuggestedEditSession",
+				"ext.growthExperiments.Store"
 			],
 			"messages": [
 				"comma-separator",
@@ -1581,6 +1582,19 @@
 			],
 			"dependencies": [
 				"mediawiki.pulsatingdot"
+			]
+		},
+		"ext.growthExperiments.Store": {
+			"packageFiles": [
+				"store/init.js",
+				"store/index.js",
+				"store/modules/tasks.js",
+				"ext.growthExperiments.Homepage.SuggestedEdits/GrowthTasksApi.js",
+				"utils/Utils.js"
+			],
+			"dependencies": [
+				"vue",
+				"vuex"
 			]
 		}
 	},
